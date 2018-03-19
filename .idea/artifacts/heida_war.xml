@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="heida:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="heida.war">
+      <element id="artifact" artifact-name="heida:war exploded" />
+    </root>
+  </artifact>
+</component>
