@@ -32,6 +32,7 @@ public class CommentsService {
         User user = new User();
         Article article = new Article();
         user=userDao.findOneById(comments.getUserid());
+        comments.setNickname(user.getNickname());
         article=articleDao.findOneById((int)comments.getArticleid());
         System.out.println(comments);
         commentsDao.save(comments);
@@ -56,12 +57,16 @@ public class CommentsService {
         Article article = articleDao.findOneById((int)comments.getArticleid());
         if(article.getUserid().equals(comments.getUserid())){
             for (Comments_child l:list) {
+                User u= userDao.findOneById(l.getUserid());
+                l.setHeadimg(u.getHeadimg());
                 l.setDelflag(1);
             }
         }else {
             for (Comments_child l : list) {
                 if(l.getUserid().equals(comments.getUserid()))
                     l.setDelflag(1);
+                User u= userDao.findOneById(l.getUserid());
+                l.setHeadimg(u.getHeadimg());
             }
         }
         return list;
