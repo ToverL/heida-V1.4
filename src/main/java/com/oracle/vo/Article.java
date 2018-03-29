@@ -4,7 +4,6 @@ package com.oracle.vo;
 import java.sql.Timestamp;
 
 public class Article {
-
   private String userid;//sessionID
   private long articleid;//文章ID
   private String nickname;//昵称
@@ -13,7 +12,12 @@ public class Article {
   private long likednum;//点赞量
   private long commnum;//评论量
   private java.sql.Timestamp times;//文章时间
-  private long anonymous;//是否匿名
+  private long anonymous;//是否匿名(0匿名1不匿名)
+
+  public Article() {
+    super();
+  }
+
 
   @Override
   public String toString() {

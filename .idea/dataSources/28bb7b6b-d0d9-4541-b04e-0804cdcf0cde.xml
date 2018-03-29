@@ -1001,11 +1001,11 @@
       <ColNames>articleid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="251" parent="238" name="userid">
+    <column id="251" parent="238" name="commentsid">
       <Position>1</Position>
-      <DataType>varchar(30)|0</DataType>
+      <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="252" parent="238" name="articleid">
@@ -1014,83 +1014,98 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="238" name="nickname">
+    <column id="253" parent="238" name="userid">
       <Position>3</Position>
-      <DataType>varchar(50)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="254" parent="238" name="contents">
-      <Position>4</Position>
-      <DataType>varchar(500)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="255" parent="238" name="times">
-      <Position>5</Position>
-      <DataType>varchar(20)|0</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="256" parent="238" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>userid
-articleid
-times</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="257" parent="239" name="userid">
-      <Position>1</Position>
       <DataType>varchar(30)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="239" name="articleid">
+    <column id="254" parent="238" name="nickname">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="255" parent="238" name="contents">
+      <Position>5</Position>
+      <DataType>varchar(500)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="256" parent="238" name="times">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="257" parent="238" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>commentsid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="258" parent="239" name="likeid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="259" parent="239" name="articleid">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="259" parent="239" name="PRIMARY">
+    <column id="260" parent="239" name="userid">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="261" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>articleid
-userid</ColNames>
+      <ColNames>likeid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="260" parent="240" name="userid">
+    <column id="262" parent="240" name="userid">
       <Position>1</Position>
       <DataType>varchar(30)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="240" name="headimg">
+    <column id="263" parent="240" name="headimg">
       <Position>2</Position>
       <DataType>varchar(200)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="240" name="nickname">
+    <column id="264" parent="240" name="nickname">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="240" name="articlesnum">
+    <column id="265" parent="240" name="articlesnum">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="240" name="likednum">
+    <column id="266" parent="240" name="likednum">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="240" name="commnum">
+    <column id="267" parent="240" name="commnum">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="266" parent="240" name="PRIMARY">
+    <column id="268" parent="240" name="sessionkey">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="269" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid</ColNames>
       <Primary>1</Primary>

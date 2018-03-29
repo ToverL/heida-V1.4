@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.oracle.dao.LikeDao">
+    <insert id="saveLike" parameterType="com.oracle.vo.Likeuser" keyProperty="likeid" useGeneratedKeys="true">
+        insert into likeuser (userid, articleid) values (#{userid},#{articleid});
+    </insert>
+    <delete id="deleteLike" parameterType="com.oracle.vo.Likeuser">
+        DELETE FROM likeuser WHERE articleid=#{articleid} and userid=#{userid};
+    </delete>
+    <update id="likeUp" parameterType="com.oracle.vo.User">
+        update user set likednum = (#{likednum}+1)  where userid=#{userid} ;
+    </update>
+
+    <update id="LikeArticle" parameterType="com.oracle.vo.Article">
+        update article set likednum =(#{likednum}+1)  where articleid=#{articleid} ;
+    </update>
+
+    <update id="likeDown" parameterType="com.oracle.vo.User">
+        update user set likednum = (#{likednum}-1)  where userid=#{userid} ;
+    </update>
+
+    <update id="UnLikeArticle" parameterType="com.oracle.vo.Article">
+        update article set likednum =(#{likednum}-1)  where articleid=#{articleid} ;
+    </update>
+    <select id="selectByUserId" resultType="com.oracle.vo.Likeuser">
+        select * from likeuser WHERE userid=#{userid};
+    </select>
+
+</mapper>

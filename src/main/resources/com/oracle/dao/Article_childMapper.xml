@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.oracle.dao.Article_childDao">
+
+    <insert id="saveArticle" parameterType="com.oracle.vo.Article_child" useGeneratedKeys="true" keyProperty="articleid">
+        insert into article (userid, nickname, headimg, contents, likednum, commnum, times, anonymous) values (#{userid},#{nickname},#{headimg},#{contents},#{likednum} ,
+        #{commnum} ,#{times},#{anonymous} );
+    </insert>
+
+    <select id="selectNewArticle" resultType="com.oracle.vo.Article_child">
+
+        select * from article ORDER BY times DESC limit 0,10 ;
+
+    </select>
+
+    <select id="selectOldArticle" resultType="com.oracle.vo.Article_child">
+        select * from article
+        WHERE
+        (articleid &lt; #{articleid})
+        ORDER BY
+        articleid
+        DESC
+        limit 0,10;
+    </select>
+    <select id="findOneById"  resultType="com.oracle.vo.Article_child">
+        select * from article WHERE articleid=#{articleid};
+    </select>
+    <update id="userUp" parameterType="com.oracle.vo.User">
+        update user set articlesnum = (#{articlesnum}+1) where userid=#{userid} ;
+    </update>
+    <delete id="deleteArticle" parameterType="com.oracle.vo.Article_child">
+        DELETE FROM article WHERE articleid=#{articleid};
+    </delete>
+    <update id="userArticleDowen" parameterType="com.oracle.vo.User">
+        update user set articlesnum = (#{articlesnum}-1) where userid=#{userid} ;
+    </update>
+    <select id="getArticleByUserId" parameterType="com.oracle.vo.User" resultType="com.oracle.vo.Article_child">
+        select * from article WHERE userid=#{userid};
+    </select>
+</mapper>

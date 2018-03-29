@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.oracle.dao.CommentsDao">
+    <insert id="save" parameterType="com.oracle.vo.Comments" useGeneratedKeys="true" keyProperty="commentsid">
+        insert into comments (articleid, userid, nickname, contents, times) values (#{articleid},#{userid},#{nickname},#{contents},#{times});
+    </insert>
+    <delete id="delete" parameterType="com.oracle.vo.Comments">
+        DELETE FROM comments WHERE commentsid=#{commentsid};
+    </delete>
+    <update id="userCommentsUp" parameterType="com.oracle.vo.User">
+        update user set commnum=#{commnum}+1  where userid=#{userid} ;
+    </update>
+    <update id="userCommentsDown" parameterType="com.oracle.vo.User">
+        update user set commnum=#{commnum}-1  where userid=#{userid} ;
+    </update>
+
+    <update id="articleCommentsUp" parameterType="com.oracle.vo.Article">
+        update article set commnum=#{commnum}+1  where articleid=#{articleid};
+    </update>
+
+    <update id="articleCommentsDown" parameterType="com.oracle.vo.Article">
+        update article set commnum=#{commnum}-1  where articleid=#{articleid};
+    </update>
+    <select id="selectByArticleId" resultType="com.oracle.vo.Comments_child" parameterType="com.oracle.vo.Comments">
+        select * from  comments WHERE articleid=#{articleid};
+    </select>
+
+</mapper>

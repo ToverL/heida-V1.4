@@ -2,12 +2,22 @@ package com.oracle.vo;
 
 public class User {
 
-  private String userid;//sessionID
+  private String userid;//openid
   private String headimg;//头像链接
   private String nickname;//昵称
   private long articlesnum;//发表文章数量
   private long likednum;//点赞量
   private long commnum;//评论数量
+    private String sessionkey;//sessionkey
+
+
+    public String getSessionkey() {
+        return sessionkey;
+    }
+
+    public void setSessionkey(String sessionkey) {
+        this.sessionkey = sessionkey;
+    }
 
     public String getUserid() {
         return userid;
@@ -57,14 +67,16 @@ public class User {
         this.commnum = commnum;
     }
 
+    @Override
     public String toString() {
-    return "User{" +
-            "userid='" + userid + '\'' +
-            ", headimg='" + headimg + '\'' +
-            ", nickname='" + nickname + '\'' +
-            ", articlesnum=" + articlesnum +
-            ", likednum=" + likednum +
-            ", commnum=" + commnum +
-            '}';
-  }
+        return "User{" +
+                "userid='" + userid + '\'' +
+                ", headimg='" + headimg + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", articlesnum=" + articlesnum +
+                ", likednum=" + likednum +
+                ", commnum=" + commnum +
+                ", sessionkey='" + sessionkey + '\'' +
+                '}';
+    }
 }
