@@ -56,6 +56,59 @@ public class ArticleHandler {
         return list;
     }
 
+    //我的文章（初次）
+    @RequestMapping(value = "getmyarticlepa.do",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Article_child> getmyNewArticle(String userid){
+        List<Article_child>list=articleService.selectmyNewArticle(userid);
+        System.out.println(list);
+        return list;
+    }
+    //我的文章（下拉到底）
+    @RequestMapping(value = "getmyarticlera.do",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Article_child> getmyOldArticle(int articleid, String userid){
+        List<Article_child>list=articleService.selectmyOldArticle(articleid,userid);
+        System.out.println(list);
+        return list;
+    }
+
+    //我的评论文章（初次）
+    @RequestMapping(value = "getmycomarticlepa.do",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Article_child> getmycomNewArticle(String userid){
+        List<Article_child>list=articleService.selectmycomNewArticle(userid);
+        System.out.println(list);
+        return list;
+    }
+    //我的评论文章（下拉到底）
+    @RequestMapping(value = "getmycomarticlera.do",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Article_child> getmycomOldArticle(int articleid, String userid){
+        List<Article_child>list=articleService.selectmycomOldArticle(articleid,userid);
+        System.out.println(list);
+        return list;
+    }
+
+    //我的点赞文章（初次）
+    @RequestMapping(value = "getmylikearticlepa.do",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Article_child> getmylikeNewArticle(String userid){
+        List<Article_child>list=articleService.selectmylikeNewArticle(userid);
+        System.out.println(list);
+        return list;
+    }
+    //我的点赞文章（下拉到底）
+    @RequestMapping(value = "getmylikearticlera.do",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Article_child> getmylikeOldArticle(int articleid, String userid){
+        List<Article_child>list=articleService.selectmylikeOldArticle(articleid,userid);
+        System.out.println(list);
+        return list;
+    }
+
+
+
     @RequestMapping(value = "like.do",method = RequestMethod.GET)
     @ResponseBody
     public Likeuser likeOne (Likeuser likeuser){

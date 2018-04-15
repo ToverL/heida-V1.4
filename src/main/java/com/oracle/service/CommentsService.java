@@ -58,15 +58,19 @@ public class CommentsService {
         if(article.getUserid().equals(comments.getUserid())){
             for (Comments_child l:list) {
                 User u= userDao.findOneById(l.getUserid());
+
                 l.setHeadimg(u.getHeadimg());
                 l.setDelflag(1);
+                System.out.println("******"+l.getHeadimg());
             }
         }else {
             for (Comments_child l : list) {
-                if(l.getUserid().equals(comments.getUserid()))
+                if(l.getUserid().equals(comments.getUserid())) {
                     l.setDelflag(1);
+                }
                 User u= userDao.findOneById(l.getUserid());
                 l.setHeadimg(u.getHeadimg());
+                System.out.println("******"+l.getHeadimg());
             }
         }
         return list;

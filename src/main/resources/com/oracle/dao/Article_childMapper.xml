@@ -16,6 +16,13 @@
 
     </select>
 
+    <select id="selectmyNewArticle" resultType="com.oracle.vo.Article_child">
+
+        select * from article WHERE userid=#{userid}ORDER BY times DESC limit 0,10 ;
+
+    </select>
+
+
     <select id="selectOldArticle" resultType="com.oracle.vo.Article_child">
         select * from article
         WHERE
@@ -25,6 +32,37 @@
         DESC
         limit 0,10;
     </select>
+
+
+    <select id="selectmyOldArticle" resultType="com.oracle.vo.Article_child">
+        select * from article
+        WHERE
+        userid=#{userid} AND (articleid &lt; #{articleid})
+        ORDER BY
+        articleid
+        DESC
+        limit 0,10;
+    </select>
+
+    <select id="selectmycomNewArticle"  resultType="com.oracle.vo.Article_child">
+        select * from article WHERE articleid IN (
+        select DISTINCT articleid from comments WHERE userid = #{userid}
+        )
+        ORDER BY times DESC limit 0,10 ;
+    </select>
+
+
+    <select id="selectmycomOldArticle" resultType="com.oracle.vo.Article_child">
+       select * from article WHERE articleid IN (
+        select DISTINCT articleid from comments WHERE userid = #{userid}
+        )
+        AND (articleid &lt; #{articleid})
+        ORDER BY
+        articleid
+        DESC
+        limit 0,10;
+    </select>
+
     <select id="findOneById"  resultType="com.oracle.vo.Article_child">
         select * from article WHERE articleid=#{articleid};
     </select>
@@ -39,5 +77,20 @@
     </update>
     <select id="getArticleByUserId" parameterType="com.oracle.vo.User" resultType="com.oracle.vo.Article_child">
         select * from article WHERE userid=#{userid};
+    </select>
+    <select id="selectmylikeNewArticle" resultType="com.oracle.vo.Article_child">
+        select * from article WHERE article.articleid IN (
+        select articleid from likeuser WHERE likeuser.userid=#{userid}
+        );
+    </select>
+
+    <select id="selectmylikeOldArticle" resultType="com.oracle.vo.Article_child">
+        select * from article WHERE article.articleid IN (
+        select articleid from likeuser WHERE likeuser.userid=#{userid}
+        )AND (article.articleid &lt; #{articleid})
+        ORDER BY
+        article.articleid
+        DESC
+        limit 0,10;;
     </select>
 </mapper>

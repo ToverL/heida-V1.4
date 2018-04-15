@@ -123,6 +123,48 @@
   结构返回数据：
         无
    ```
+ - 'GET /heida/getmyarticlepa.do'   我的文章（初次）
+  ```
+  访问接口时需要提供数据：
+    userid
+  结构返回数据：
+        无
+   ```  
+  - 'GET /heida/getmyarticlera.do'   我的文章（下拉触底）
+   ```
+   访问接口时需要提供数据：
+     userid  articleid(最后一条)
+   结构返回数据：
+         无
+   ```  
+ - 'GET /heida/getmycomarticlepa.do'   我评论过的文章（初次）
+  ```
+  访问接口时需要提供数据：
+    userid
+  结构返回数据：
+        无
+   ```  
+  - 'GET /heida/getmycomarticlera.do'   我评论过的文章（下拉触底）
+   ```
+   访问接口时需要提供数据：
+     userid  articleid(最后一条)
+   结构返回数据：
+         无
+   ``` 
+ - 'GET /heida/getmylikearticlepa.do'   我点赞的文章（初次）
+  ```
+  访问接口时需要提供数据：
+    userid
+  结构返回数据：
+        无
+   ```  
+  - 'GET /heida/getmylikearticlera.do'   我点赞的文章（下拉触底）
+   ```
+   访问接口时需要提供数据：
+     userid  articleid(最后一条)
+   结构返回数据：
+         无
+   ```     
  ## mysql数据库建表
  
  ```
